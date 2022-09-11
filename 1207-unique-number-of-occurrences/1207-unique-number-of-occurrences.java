@@ -6,7 +6,13 @@ class Solution {
             map.put(n, map.getOrDefault(n, 0)+1);
         }
         
-        HashSet<Integer> set = new HashSet<>(map.values());
-        return map.size() == set.size();
+        HashSet<Integer> set = new HashSet<>();
+        for(int x : map.values()){
+            set.add(x);
+            if(map.size() == set.size()){
+                return true;
+            }
+        }
+        return false;
     }
 }
