@@ -1,28 +1,23 @@
 class Solution {
     public void sortColors(int[] nums) {
-    int count0 = 0, count1 = 0, count2 = 0;
-       int n = nums.length;
-        for(int i=0; i<n; i++){
-            if(nums[i]==0){
-                count0++;
-            }
-            if(nums[i]==1){
-                count1++;
-            }
-            else{
-                count2++;
-            }
-        }
+        // We assume that all the elements before s are 0 and all the elements after e are 2
+        int s = 0, e = nums.length - 1;
+        int i = 0;    // a variable to iterate the array
         
-        for(int i=0; i<n; i++){
-            if(i < count0){
-                nums[i] = 0;
+        while(i <= e) {
+            if(nums[i] == 0) {
+                nums[i] = nums[s];
+                nums[s] = 0;
+                s++;
+                i++;
             }
-            else if(i < count0 + count1){
-                nums[i] = 1;
+            else if(nums[i] == 2) {
+                nums[i] = nums[e];
+                nums[e] = 2;
+                e--;
             }
-            else{
-                nums[i] = 2;
+            else {
+                i++;
             }
         }
     }
