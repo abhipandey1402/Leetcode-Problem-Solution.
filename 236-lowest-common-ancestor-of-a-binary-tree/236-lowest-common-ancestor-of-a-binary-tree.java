@@ -22,9 +22,8 @@ class Solution {
         if(left!=null && right!=null){
             return root;
         }
-        if(left==null && right==null){
-            return null;
-        }
-        return left!=null ? left : right;
+        if(left!=null)
+            return left;
+        return right;
     }  
 }
