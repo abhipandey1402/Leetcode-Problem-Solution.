@@ -55,10 +55,10 @@ class Solution {
         }
     }
       
-      List<Integer> fib = new ArrayList<>();
+      HashSet<Integer> fib = new HashSet<>();
       List<Integer> result = new ArrayList<>();
       
-      Integer a = 0, b = 1;
+      int a = 0, b = 1;
       
       while(b < max){
           Integer c = a + b;
@@ -66,7 +66,7 @@ class Solution {
           b = c;
           fib.add(c);
       }
-      for(Integer i = 0; i<n; i++){
+      for(int i = 0; i<n; i++){
           if(fib.contains(arr[i])){
               result.add(arr[i]);
           }
