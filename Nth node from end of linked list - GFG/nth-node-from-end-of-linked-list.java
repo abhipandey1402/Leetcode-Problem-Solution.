@@ -99,21 +99,24 @@ class GfG
     {
     	// Your code here
     	int size = 0;
-    	Node temp = head;
-    	
-    	while(temp!=null){
+    	Node curr = head;
+    	while(curr != null){
     	    size++;
-    	    temp = temp.next;
+    	    curr = curr.next;
     	}
-    	if(n > size){
+    	if(size < n){
     	    return -1;
     	}
+    	Node slow = head;
+    	Node fast = head;
     	
-    	int index = size - n;
-    	while(index > 0){
-    	    head = head.next;
-    	    index--;
+    	for(int i=0; i<n; i++){
+    	    fast = fast.next;
     	}
-    	return head.data;
+    	while(fast != null){
+    	    fast = fast.next;
+    	    slow = slow.next;
+    	}
+    	return slow.data;
     }
 }
