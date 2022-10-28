@@ -7,7 +7,7 @@ class Solution {
                 st.push(i);
             }
            else{
-           while(!st.isEmpty() && st.peek() > 0 && Math.abs(st.peek()) < Math.abs(i)){
+           while(!st.isEmpty() && st.peek() > 0 && st.peek() < Math.abs(i)){
                st.pop();
            }
                if(st.isEmpty() || st.peek() < 0){
