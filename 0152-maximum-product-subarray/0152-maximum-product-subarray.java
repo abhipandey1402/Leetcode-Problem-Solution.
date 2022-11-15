@@ -6,13 +6,9 @@ class Solution {
         int n = nums.length;
         
         for(int i=1; i<n; i++){
-            if(nums[i] < 0){
-                int temp = max;
-                max = min;
-                min = temp;
-            }
-            max = Math.max(nums[i], nums[i]*max);
-            min = Math.min(nums[i], nums[i]*min);
+            int temp = Math.max(nums[i], Math.max(nums[i]*max, nums[i]*min));
+            min = Math.min(nums[i], Math.min(nums[i]*max, nums[i]*min));
+            max = temp;
             
             product = Math.max(product, max);
         }
