@@ -1,13 +1,13 @@
 class Solution {
     public int maximumCandies(int[] candies, long k) {
-        long sum = 0;
+        long left = 1;
+        long right = 0;
         int n = candies.length;
         long ans = 0;
         for(int i=0; i<n; i++){
-            sum += candies[i];
+            right = Math.max(right, candies[i]);
         }
-        long left = 1;
-        long right = sum;
+
         while(left <= right){
             long piles = 0;
             long mid = left + (right-left)/2;
